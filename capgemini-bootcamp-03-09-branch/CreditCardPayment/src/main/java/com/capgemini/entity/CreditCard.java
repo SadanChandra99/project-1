@@ -24,6 +24,7 @@ public class CreditCard {
 	private String bankName;
 	@Column
 	private LocalDate expiryDate;
+	
 	public CreditCard(long id, String cardName, String cardNumber, String cardType, String bankName,
 			LocalDate expiryDate) {
 		super();

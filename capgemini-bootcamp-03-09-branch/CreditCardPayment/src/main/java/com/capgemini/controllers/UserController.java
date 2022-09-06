@@ -34,16 +34,16 @@ public class UserController {
 	private UserRepository userrepository;
 	
 	@GetMapping("/login")
-	public String login() {
+	public 	String login() {
 		
-		return "Login";
+		return ("Login");
 	}
 	
 	
 	@GetMapping("/changepassword")
 	public String passwordform() {
 		
-		return "change";
+		return ("change");
 	}
 	
 	@RequestMapping(path = "/reset")
@@ -53,7 +53,7 @@ public class UserController {
 		UserEntity user  = userrepository.findByUserId(id);
 		user.setPassword(newpassword);
 		userrepository.save(user);
-		return "reset";
+		return ("reset");
 	}
 	
 	
@@ -73,11 +73,11 @@ public class UserController {
 		
 		if( user.getPassword().equals(userpassword)) {
 			
-			return "success";
+			return ("success");
 		}
 		else 
 		{
-			return "reenter";
+			return ("reenter");
 		}
 		//
 		
@@ -91,7 +91,7 @@ public class UserController {
 	@GetMapping("/logout")
 	public String signOut() {
 		
-		return "redirect";
+		return ("redirect");
 	}
 
 }

@@ -26,27 +26,32 @@ public class CreditCardController {
 	
 	@PostMapping(value = "/add" , consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<CreditCardModel> addCreditCard(@RequestBody CreditCardModel creditcardmodel){
-		return ResponseEntity.ok(creditcardservice.addCreditCard(creditcardmodel));
+		CreditCardModel creditcard = creditcardservice.addCreditCard(creditcardmodel);
+		return ResponseEntity.ok(creditcard);
 	}
 	
 	@GetMapping(value = "/getbyid/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<CreditCardModel> getCreditCardById(@PathVariable("id") long id){
-		return ResponseEntity.ok(creditcardservice.getCreditCardById(id));
+		CreditCardModel creditcard = creditcardservice.getCreditCardById(id);
+		return ResponseEntity.ok(creditcard);
 	}
 	
 	@GetMapping(value = "/getall", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CreditCardModel>> getAllCreditCards(){
-		return ResponseEntity.ok(creditcardservice.getAllCreditCards());
+		List<CreditCardModel> creditcards = creditcardservice.getAllCreditCards();
+		return ResponseEntity.ok(creditcards);
 	}
 	
 	@PutMapping(value = "/update/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<CreditCardModel> updateCreditCard(@PathVariable("id") long id, @RequestBody CreditCardModel creditcardmodel){
-		return ResponseEntity.ok(creditcardservice.updateCreditCard(id, creditcardmodel));
+		CreditCardModel creditcard = creditcardservice.updateCreditCard(id, creditcardmodel);
+		return ResponseEntity.ok(creditcard);
 	}
 	
 	@DeleteMapping(value = "/delete/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> deleteCreditCard(@PathVariable long id){
-		return ResponseEntity.ok(creditcardservice.removeCreditCard(id));
+		String creditcard = creditcardservice.removeCreditCard(id);
+		return ResponseEntity.ok(creditcard);
 	}
 	
 }
